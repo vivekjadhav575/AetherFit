@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "name": "AetherFit Pose Form Classifier",
+  "description": "Baseline browser-side pose scoring model over engineered pose features. Replace with learned weights from labeled datasets for higher accuracy.",
+  "exercises": {
+    "squat": {
+      "featureKeys": ["kneeAngle", "hipAngle", "stanceWidth", "kneeWidth", "confidence"],
+      "classes": [
+        {
+          "id": "good-squat",
+          "centroid": [100, 72, 0.3, 0.28, 0.95],
+          "score": 95,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "shallow-depth",
+          "centroid": [132, 78, 0.3, 0.28, 0.95],
+          "score": 72,
+          "severity": "warning",
+          "message": "Model says depth is short. Sink a little lower while keeping the chest tall."
+        },
+        {
+          "id": "knees-caving",
+          "centroid": [105, 70, 0.3, 0.17, 0.95],
+          "score": 58,
+          "severity": "critical",
+          "message": "Model says the knees are drifting inward. Press them out over the toes."
+        }
+      ]
+    },
+    "push-up": {
+      "featureKeys": ["elbowAngle", "torsoAngle", "confidence"],
+      "classes": [
+        {
+          "id": "good-pushup",
+          "centroid": [82, 175, 0.95],
+          "score": 94,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "hip-drop",
+          "centroid": [85, 145, 0.95],
+          "score": 60,
+          "severity": "critical",
+          "message": "Model says hips are dropping. Brace the core and keep one straight line."
+        },
+        {
+          "id": "partial-range",
+          "centroid": [120, 172, 0.95],
+          "score": 74,
+          "severity": "warning",
+          "message": "Model says the rep is shallow. Lower until elbows bend more."
+        }
+      ]
+    },
+    "lunge": {
+      "featureKeys": ["kneeAngle", "torsoAngle", "confidence"],
+      "classes": [
+        {
+          "id": "good-lunge",
+          "centroid": [92, 68, 0.95],
+          "score": 93,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "short-range",
+          "centroid": [128, 68, 0.95],
+          "score": 73,
+          "severity": "warning",
+          "message": "Model says the lunge range is short. Drop the back knee a bit lower."
+        },
+        {
+          "id": "forward-collapse",
+          "centroid": [96, 44, 0.95],
+          "score": 66,
+          "severity": "warning",
+          "message": "Model says the torso is collapsing forward. Stay taller through the chest."
+        }
+      ]
+    },
+    "plank": {
+      "featureKeys": ["torsoAngle", "shoulderStack", "holdSeconds", "confidence"],
+      "classes": [
+        {
+          "id": "good-plank",
+          "centroid": [176, 0.04, 12, 0.95],
+          "score": 95,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "hips-high",
+          "centroid": [156, 0.05, 8, 0.95],
+          "score": 72,
+          "severity": "warning",
+          "message": "Model says hips are too high. Lower them until shoulders and heels line up."
+        },
+        {
+          "id": "hips-sagging",
+          "centroid": [202, 0.05, 8, 0.95],
+          "score": 58,
+          "severity": "critical",
+          "message": "Model says hips are sagging. Lift through the core and glutes."
+        }
+      ]
+    },
+    "shoulder-press": {
+      "featureKeys": ["elbowAngle", "trunkAngle", "confidence"],
+      "classes": [
+        {
+          "id": "good-press",
+          "centroid": [165, 170, 0.95],
+          "score": 93,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "arching-back",
+          "centroid": [148, 138, 0.95],
+          "score": 63,
+          "severity": "critical",
+          "message": "Model says the rib cage is flaring. Keep ribs down and avoid leaning back."
+        },
+        {
+          "id": "short-lockout",
+          "centroid": [138, 168, 0.95],
+          "score": 76,
+          "severity": "info",
+          "message": "Model says the press can finish a bit higher overhead."
+        }
+      ]
+    },
+    "bicep-curl": {
+      "featureKeys": ["elbowAngle", "upperArmTravel", "confidence"],
+      "classes": [
+        {
+          "id": "good-curl",
+          "centroid": [52, 0.05, 0.95],
+          "score": 94,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "swinging",
+          "centroid": [65, 0.18, 0.95],
+          "score": 62,
+          "severity": "warning",
+          "message": "Model says you are swinging the curl. Pin the elbows and slow the rep down."
+        }
+      ]
+    },
+    "jumping-jack": {
+      "featureKeys": ["feetWidth", "confidence"],
+      "classes": [
+        {
+          "id": "good-jack",
+          "phase": "open",
+          "centroid": [0.52, 0.95],
+          "score": 91,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "narrow-open",
+          "phase": "open",
+          "centroid": [0.28, 0.95],
+          "score": 74,
+          "severity": "warning",
+          "message": "Model says the jack is too narrow. Open the feet and reach bigger."
+        }
+      ]
+    },
+    "cat-cow": {
+      "featureKeys": ["spinalCurve", "confidence"],
+      "classes": [
+        {
+          "id": "good-wave",
+          "centroid": [0.05, 0.95],
+          "score": 90,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "small-wave",
+          "centroid": [0.01, 0.95],
+          "score": 72,
+          "severity": "info",
+          "message": "Model says the spinal wave is small. Breathe deeper and move through more range."
+        }
+      ]
+    },
+    "hip-hinge": {
+      "featureKeys": ["hipAngle", "kneeTravel", "confidence"],
+      "classes": [
+        {
+          "id": "good-hinge",
+          "centroid": [86, 0.06, 0.95],
+          "score": 93,
+          "confidenceBoost": 0.08
+        },
+        {
+          "id": "knee-dominant",
+          "centroid": [102, 0.18, 0.95],
+          "score": 68,
+          "severity": "warning",
+          "message": "Model says the hinge is too knee-dominant. Push the hips farther back."
+        },
+        {
+          "id": "shallow-hinge",
+          "centroid": [118, 0.09, 0.95],
+          "score": 76,
+          "severity": "info",
+          "message": "Model says range is short. Reach the hips back to load the posterior chain."
+        }
+      ]
+    }
+  }
+}

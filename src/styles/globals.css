@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 96%;
+    --foreground: 222 47% 11%;
+    --card: 210 45% 98%;
+    --card-foreground: 222 47% 11%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 215 24% 88%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 172 53% 88%;
+    --accent-foreground: 172 75% 18%;
+    --border: 214 32% 85%;
+    --input: 214 32% 92%;
+    --ring: 199 89% 48%;
+    --success: 160 84% 32%;
+    --warning: 35 92% 45%;
+    --danger: 354 76% 48%;
+    --shadow-soft: 14px 14px 30px rgba(148, 163, 184, 0.18), -12px -12px 24px rgba(255, 255, 255, 0.7);
+    --shadow-inset: inset 6px 6px 14px rgba(148, 163, 184, 0.18), inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    --shadow-lifted: 0 28px 70px rgba(15, 23, 42, 0.28);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    --card: 222 42% 12%;
+    --card-foreground: 210 40% 98%;
+    --primary: 191 97% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 221 28% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 29% 16%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 173 48% 17%;
+    --accent-foreground: 164 100% 91%;
+    --border: 223 25% 20%;
+    --input: 223 25% 18%;
+    --ring: 191 97% 60%;
+    --success: 156 72% 44%;
+    --warning: 38 92% 50%;
+    --danger: 0 84% 62%;
+    --shadow-soft: 18px 18px 34px rgba(2, 6, 23, 0.65), -12px -12px 26px rgba(30, 41, 59, 0.55);
+    --shadow-inset: inset 6px 6px 12px rgba(2, 6, 23, 0.6), inset -6px -6px 12px rgba(30, 41, 59, 0.4);
+    --shadow-lifted: 0 30px 70px rgba(2, 6, 23, 0.6);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass-surface {
+    @apply border border-white/10 bg-white/55 backdrop-blur-xl dark:bg-slate-900/50;
+  }
+
+  .soft-grid {
+    background-size: 18px 18px;
+    background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.12) 1px, transparent 0);
+  }
+}
